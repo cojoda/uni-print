@@ -1,0 +1,4 @@
+\subsection*{}
+Why is it important for the scheduler to distinguish I/O-bound programs from CPU-bound programs?
+    \paragraph*{}
+    I/O-bound programs mainly wait for I/O tasks to finish, leaving the CPU underutilized during these waits. In contrast, CPU-bound programs primarily engage in computations, keeping the CPU busy. Recognizing the difference between these program types is crucial for the scheduler to effectively allocate CPU time. By prioritizing I/O-bound programs with shorter CPU bursts, the scheduler allows these programs to start their I/O tasks and then quickly switches the CPU to another process. This approach prevents the CPU from idling during I/O waits, optimizing overall system performance.
