@@ -1,0 +1,21 @@
+\subsection*{What are the 5 goals of a scheduling algorithm?}
+    \begin{enumerate}[label=\arabic*.]
+        \item \textbf{Fairness or Waiting Time}: 
+        The time a process waits in the ready queue, ensuring no process waits too long.
+        \item \textbf{CPU Utilization}: 
+        Maximizing CPU activity.
+        \item \textbf{Response Time}: 
+        The time to respond to user interactions.
+        \item \textbf{Turnaround Time}: 
+        The time from process submission to completion.
+        \item \textbf{Throughput}: 
+        The number of processes completed per time unit.
+    \end{enumerate}
+
+\subsection*{Give 2 examples where the goals are contradictory.}
+    \begin{enumerate}[label=\arabic*.]
+        \item \textbf{Fairness vs. Throughput}: 
+        Prioritizing fairness can reduce throughput, as frequent context switching to ensure no process waits too long increases overhead, lowering the number of completed processes.
+        \item \textbf{Response Time vs. CPU Utilization}: 
+        Optimizing for response time can underutilize the CPU, as prioritizing quick user input may leave the CPU idle while waiting for more input.
+    \end{enumerate}
