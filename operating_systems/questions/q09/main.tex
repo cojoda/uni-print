@@ -1,0 +1,167 @@
+\documentclass[11pt,oneside,letter,usename,dvipsnames,svgnames,table]{article}
+
+% ------------------- packages --------------------
+\usepackage{
+  afterpage,amsfonts,amsmath,amssymb,amsthm,appendix,array,booktabs,
+  caption,color,enumerate,enumitem,fancyhdr,float,fontspec,geometry,graphicx,grffile,
+  hyperref,hyphenat,ifthen,imakeidx,indentfirst,lastpage,lipsum,listings,
+  longtable,makeidx,mathtools,multicol,multirow,subcaption,tikz,tikzscale,titlesec,
+  titling,verbatim,xcolor,xltxtra,xunicode
+}
+
+\input{meta.tex}
+
+\makeatletter
+\let\Author\@author
+\let\Class\@title
+\makeatother
+
+% ------------------- setlength -------------------
+\setlength{\parindent}{0pt}
+
+% ------------------- amsthms ---------------------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\renewcommand\qedsymbol{\(\blacksquare\)}
+
+\numberwithin{equation}{subsection}
+\numberwithin{theorem}{subsection}
+
+% ------------------- caption ---------------------
+\captionsetup{width=0.95\textwidth}
+
+% ------------------- enumitem --------------------
+% \setlist{noitemsep}
+\setenumerate{label=(\alph*)}
+
+% ------------------- geometry --------------------
+\geometry{
+  margin = 1in
+}
+
+% ------------------- hyperref --------------------
+\hypersetup{
+  %--------------- pdfinfo ------------------
+  pdftitle  = {\Class},
+  pdfauthor = {\Author},
+  pdfsubject= {\Class},
+  pdfkeywords={},
+  %--------------- links --------------------
+  colorlinks= {true},
+  linkcolor = {red},
+  citecolor = {cyan},
+  bookmarks = {false},
+  bookmarksnumbered = {true},
+  %--------------- pagemode -----------------
+  pdffitwindow={true},
+  pdftoolbar= {false},
+  pdfmenubar= {false},
+  pdfpagelayout = {OneColumn},
+  pdfstartview = {FitH},
+  pdfpagemode = {UseNone},
+  %pdfnonfullscreenpagemode = {UseNone}
+}
+
+%------------------- fancyhdr ---------------------
+\fancypagestyle{report-style}{
+  \fancyhf{}
+  \fancyhead[L]{\footnotesize \Author}
+  \fancyhead[C]{\footnotesize \homework}
+  \fancyhead[R]{\footnotesize\thepage\ of \pageref*{LastPage}}
+  \pagenumbering{arabic}
+}
+\pagestyle{report-style}
+
+% ------------------- maketitle -------------------
+\makeatletter
+\def\@maketitle{%
+  \begin{center}%
+    \let \footnote \thanks
+    {\LARGE \@title \par}
+    {\vskip .5em \large \homework}
+    {\vskip .5em \large \@author}
+    {\vskip .5em \large \@date}
+  \end{center}
+\par \vskip .5em}
+
+\makeatother
+
+% ------------------- set theory commands -------------
+\newcommand{\set}[1]{
+  \ensuremath{
+    \! \left\{ #1 \right\} \!
+  }
+}
+\newcommand{\st}{
+  \ensuremath{\:\vert\:}
+}
+\newcommand*{\card}[1]{
+  \left|
+    #1
+  \right|
+}
+
+% ------------------- group theory commands -------------
+\newcommand{\fun}[3]{
+  \ensuremath{
+    #1: #2 \to #3
+  }
+}
+\newcommand{\fundef}[2]{
+  \ensuremath{
+    #1 \! \left( #2 \right)
+  }
+}
+
+\newcommand{\cycle}[1]{
+  \ensuremath{
+    \left(
+    \def\temp{#1}
+    \StrSubstitute{\temp}{,}{\,\,}[\temp]
+    \temp
+    \right)
+  }
+}
+\newcommand*{\gen}[1]{
+  \left<
+    #1
+  \right>
+}
+\newcommand*{\ord}[1]{
+  o \left(
+    #1
+  \right)
+}
+
+% ------------------- Parens commands -------------
+\newcommand{\pp}[1]{
+  \ensuremath{
+    \left( #1 \right)
+  }
+}
+\newcommand{\bb}[1]{
+  \ensuremath{
+    \! \left[ #1 \right] \!
+  }
+}
+\newcommand{\pb}[1]{
+  \ensuremath{
+    \! \left( #1 \right] \!
+  }
+}
+\newcommand{\bp}[1]{
+  \ensuremath{
+    \! \left[ #1 \right) \!
+  }
+}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\input{body.tex}
+
+\end{document}
